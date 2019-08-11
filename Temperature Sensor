@@ -1,0 +1,26 @@
+int led = 13;
+int tmp36 = A0;
+
+
+
+void setup()
+{
+Serial.begin(9600);
+pinMode(led,OUTPUT);
+}
+
+
+void loop()
+{
+  
+int read = analogRead(tmp36);
+float volt = read*5.0;
+volt /= 1024.0;
+float temp = (volt-0.5)*100;
+if(temp>40)
+    { digitalWrite(led,HIGH);
+      delay(1000);
+      digitalWrite(led,LOW);
+      delay(1000); }
+
+}
